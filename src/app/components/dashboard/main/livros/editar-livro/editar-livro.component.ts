@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FormularioComponent } from "../dashboard/formulario/formulario.component";
+import { FormularioLivroComponent } from "../formulario-livro/formulario-livro.component";
 
 @Component({
   selector: 'app-editar-livro',
-  imports: [FormularioComponent],
+  imports: [FormularioLivroComponent],
   templateUrl: './editar-livro.component.html',
   styleUrl: './editar-livro.component.css'
 })

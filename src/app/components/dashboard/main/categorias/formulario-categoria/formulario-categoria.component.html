@@ -1,0 +1,18 @@
+<section class="form-wrapper">
+    <a [routerLink]="['/dashboard/categorias']" class="go-back">
+        <img src="/icones/dashboard/back.svg" alt="">
+        Voltar
+    </a>
+    <div class="form-wrapper-header">
+        <ng-content />
+    </div>
+    <form>
+        <label>
+            Categoria
+            <input type="text" name="category" required placeholder="Ex: Programação">
+        </label>
+        <div class="submit-button-wrapper">
+            <button type="submit">Adicionar Categoria</button>
+        </div>
+    </form>
+</section>
