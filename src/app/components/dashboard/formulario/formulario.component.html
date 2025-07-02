@@ -1,0 +1,48 @@
+<section class="form-wrapper">
+    <a [routerLink]="['/dashboard/livros']" class="go-back">
+        <img src="/icones/dashboard/back.svg" alt="">
+        Voltar
+    </a>
+    <div class="form-wrapper-header">
+        <ng-content />
+    </div>
+    <form>
+        <label>
+            Título
+            <input type="text" name="title" required placeholder="Ex: Entendendo Algoritmos">
+        </label>
+        <label>
+            Autor
+            <input type="text" name="author" required placeholder="Ex: Aditya Y. Bhargava">
+        </label>
+        <label>
+            Categoria
+            <select name="category" class="select-category" required>
+                <option value="" selected disabled>Selecione uma categoria</option>
+                <option value="programacao">Programação</option>
+                <option value="frontend">Front End</option>
+                <option value="datascience">Data Science</option>
+                <option value="AI">AI</option>
+            </select>
+        </label>
+        <label>
+            Descrição
+            <input required type="text" name="descricao" placeholder="Ex: Este guia cativante ...">
+        </label>
+        <label>
+            Estoque
+            <input required type="number" name="stock" min="0" step="1" placeholder="Ex: 120">
+        </label>
+        <label>
+            Valor
+            <input required type="number" name="price" min="0.0" step="0.1" placeholder="Ex: 29,90">
+        </label>
+        <label>
+            Imagem
+            <input required type="text" name="image" placeholder="Ex: Imagem.png">
+        </label>
+        <div class="submit-button-wrapper">
+            <button type="submit">Adicionar Livro</button>
+        </div>
+    </form>
+</section>

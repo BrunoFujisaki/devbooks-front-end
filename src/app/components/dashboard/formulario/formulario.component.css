@@ -1,0 +1,81 @@
+.form-wrapper {
+    border-radius: 8px;
+    background-color: var(--fundo-componentes);
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.go-back {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: .3em;
+    color: var(--texto);
+    text-decoration: none;
+    padding: .3em;
+    border-radius: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+input {
+    font-size: 16px;
+    border: none;
+    background-color: var(--fundo-secundario);
+    color: var(--sub-texto);
+    padding: 1em;
+    border-radius: 8px;
+}
+
+input::placeholder {
+    font-size: 16px;
+    font-family: var(--work-sans);
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--sub-texto);
+}
+
+.select-category {
+    padding: 1em;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--fundo-secundario);
+    color: var(--sub-texto);
+    font-family: var(--work-sans);
+    appearance: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+.submit-button-wrapper {
+    display: flex;
+    justify-content: right;
+}
+
+.submit-button-wrapper button {
+    padding: .8em 2em;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--destaque);
+    color: var(--texto);
+    font-size: 16px;
+}
+
+
