@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { ModalComponent } from "../modal/modal.component";
-import { MainComponent } from "../main/main.component";
+import { ModalComponent } from '../../modal/modal.component';
+import { MainComponent } from '../main.component';
 
 @Component({
   selector: 'app-livros',

@@ -1,0 +1,39 @@
+<app-main>
+    <div class="books-header">
+            <h1>Pedidos</h1>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Pedido</th>
+                    <th>Data</th>
+                    <th>Cliente</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>#12412B</p>
+                    </td>
+                    <td>
+                        <p>01/07/2025</p>
+                    </td>
+                    <td>
+                        <p>Bruno</p>
+                    </td>
+                    <td>
+                        <p class="status">Pago</p>
+                    </td>
+                    <td>
+                        <p>R$ 455,90</p>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/dashboard/pedidos/detalhes']" class="detalhes">Detalhes</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</app-main>
