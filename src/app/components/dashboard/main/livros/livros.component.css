@@ -70,10 +70,6 @@ thead {
     border-radius: 8px;
 }
 
-.blurb-button:focus {
-    outline: none;
-}
-
 .action-buttons {
     display: flex;
     gap: 1em;

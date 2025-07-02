@@ -1,0 +1,33 @@
+<app-main>
+    <h1>Usuários</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Endereço</th>
+                <th>Número</th>
+                <th>Total gasto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <p>Bruno</p>
+                </td>
+                <td>
+                    <p>bruno&#64;email.com</p>
+                </td>
+                <td>
+                    <button [routerLink]="['/dashboard/usuarios/endereco']" class="address-button">...</button>
+                </td>
+                <td>
+                    <p>(99) 9999-9999</p>
+                </td>
+                <td>
+                    <p>R$ 499,90</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</app-main>

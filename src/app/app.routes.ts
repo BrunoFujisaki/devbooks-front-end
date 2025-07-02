@@ -9,6 +9,8 @@ import { LivrosComponent } from './components/dashboard/main/livros/livros.compo
 import { CategoriasComponent } from './components/dashboard/main/categorias/categorias.component';
 import { CriarCategoriaComponent } from './components/dashboard/main/categorias/criar-categoria/criar-categoria.component';
 import { EditarCategoriaComponent } from './components/dashboard/main/categorias/editar-categoria/editar-categoria.component';
+import { UsuariosComponent } from './components/dashboard/main/usuarios/usuarios.component';
+import { EnderecoComponent } from './components/dashboard/main/usuarios/endereco/endereco.component';
 
 export const routes: Routes = [
     {
@@ -24,7 +26,9 @@ export const routes: Routes = [
       { path: 'pedidos/detalhes', component: DetalhesComponent },
       { path: 'categorias', component: CategoriasComponent },
       { path: 'categorias/criar-categoria', component: CriarCategoriaComponent},
-      { path: 'categorias/editar-categoria', component: EditarCategoriaComponent}
+      { path: 'categorias/editar-categoria', component: EditarCategoriaComponent},
+      { path: 'usuarios', component: UsuariosComponent},
+      { path: 'usuarios/endereco', component: EnderecoComponent}
     ]
   },
   {

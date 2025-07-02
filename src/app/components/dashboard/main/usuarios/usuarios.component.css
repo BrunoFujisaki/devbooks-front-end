@@ -1,0 +1,25 @@
+table {
+    margin: auto;
+    width: 100%;
+    text-align: left;
+    padding: 1em;
+    border-collapse: collapse;
+}
+
+table th, td {
+    padding: 1em;
+    border-bottom: 1px solid var(--cor-borda)
+}
+
+thead {
+    background-color: var(--fundo-secundario);
+}
+
+.address-button {
+    border: none;
+    color: var(--texto);
+    background-color: var(--fundo-secundario);
+    padding: .6em;
+    border-radius: 8px;
+}
+
