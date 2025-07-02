@@ -1,0 +1,58 @@
+<div class="container">
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h1><span>Dev</span>Books;</h1>
+        </div>
+        <hr/>
+        <ul>
+            <li>
+                <a [routerLink]="['/dashboard/home']">
+                    <img src="/icones/dashboard/home.svg" alt="">
+                    DashBoard
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/icones/dashboard/book.svg" alt="">
+                    Livros
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/icones/dashboard/checklist.svg" alt="">
+                    Pedidos
+                </a>
+            </li>
+            
+            <li>
+                <a href="#">
+                    <img src="/icones/dashboard/category.svg" alt="">
+                    Categorias
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="/icones/dashboard/users.svg" alt="">
+                   Usuários
+                </a>
+            </li>
+        </ul>
+        <hr/>
+        <div class="sidebar-footer">
+            <div class="user-profile">
+                <img src="/icones/dashboard/profile-icon.png" alt="">
+                <div>
+                    <p>Bruno</p>
+                    <p class="email">bruno&#64;email.com</p>
+                </div>
+            </div>
+            <button class="logout-button">
+                <img src="/icones/dashboard/logout.svg" alt="">
+                Sair
+            </button>
+        </div>
+    </aside>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+</div>

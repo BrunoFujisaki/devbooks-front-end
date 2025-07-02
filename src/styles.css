@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+:root {
+  --fundo-geral: #1C1D21;
+  --fundo-componentes: #2A2C34;
+  --fundo-secundario: #33353F;
+  --texto: #F5F5F5;
+  --sub-texto: #f5f5f58f;
+  --cor-borda: rgba(109, 109, 109, 0.37);
+
+  --destaque: #7693FF;
+
+  --work-sans: 'Work Sans'
+}
+
+html,
+body {
+  font-family: var(--work-sans);
+  font-weight: 400;
+  background: var(--fundo-geral);
+  color: var(--texto);
+}
+
+hr {
+    width: 100%;
+    border-color: var(--cor-borda);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
+}
+
+
+
+
