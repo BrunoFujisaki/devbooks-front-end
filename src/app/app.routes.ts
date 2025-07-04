@@ -26,7 +26,7 @@ export const routes: Routes = [
       { path: 'pedidos/detalhes', component: DetalhesComponent },
       { path: 'categorias', component: CategoriasComponent },
       { path: 'categorias/criar-categoria', component: CriarCategoriaComponent},
-      { path: 'categorias/editar-categoria', component: EditarCategoriaComponent},
+      { path: 'categorias/editar-categoria/:id', component: EditarCategoriaComponent},
       { path: 'usuarios', component: UsuariosComponent},
       { path: 'usuarios/endereco', component: EnderecoComponent}
     ]

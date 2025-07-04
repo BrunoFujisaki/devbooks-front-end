@@ -8,19 +8,21 @@
     </div>
     <hr />
     <div class="cards-categoria">
+        @for (categoria of categorias; track $index) {
         <div class="card">
             <div class="card-header">
-                <h2>Programação</h2>
-                <p>10 Livros</p>
+                <h2>{{ categoria.nome }}</h2>
+                <p>{{ categoria.quantidadeLivros }} Livros</p>
             </div>
             <div class="action-buttons">
-                <button class="put" [routerLink]="['/dashboard/categorias/editar-categoria']">
+                <button class="put" [routerLink]="['/dashboard/categorias/editar-categoria/', categoria.id]">
                     <img src="/icones/dashboard/edit.svg" alt="">
                 </button>
-                <button class="delete">
+                <button class="delete" (click)="excluirCategoria(categoria.id)">
                     <img src="/icones/dashboard/delete.svg" alt="">
                 </button>
             </div>
         </div>
+        }
     </div>
 </app-main>

@@ -6,13 +6,13 @@
     <div class="form-wrapper-header">
         <ng-content />
     </div>
-    <form>
+    <form (ngSubmit)="emitirCategoria()">
         <label>
             Categoria
-            <input type="text" name="category" required placeholder="Ex: Programação">
+            <input [(ngModel)]="nome" type="text" name="category" required placeholder="Ex: Programação">
         </label>
         <div class="submit-button-wrapper">
-            <button type="submit">Adicionar Categoria</button>
+            <button type="submit">Salvar</button>
         </div>
     </form>
 </section>
