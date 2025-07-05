@@ -1,5 +1,5 @@
 export interface ICategoria {
-    id: number | null,
+    id: string,
     nome: string,
-    quantidadeLivros: number | null
+    quantidade: number;
 }

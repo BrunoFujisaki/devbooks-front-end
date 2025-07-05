@@ -11,6 +11,7 @@ import { CriarCategoriaComponent } from './components/dashboard/main/categorias/
 import { EditarCategoriaComponent } from './components/dashboard/main/categorias/editar-categoria/editar-categoria.component';
 import { UsuariosComponent } from './components/dashboard/main/usuarios/usuarios.component';
 import { EnderecoComponent } from './components/dashboard/main/usuarios/endereco/endereco.component';
+import { DescricaoComponent } from './components/dashboard/main/livros/descricao/descricao.component';
 
 export const routes: Routes = [
     {
@@ -20,8 +21,9 @@ export const routes: Routes = [
       { path: '', redirectTo: 'home', pathMatch: 'full' }, 
       { path: 'home', component: TelaInicialComponent },
       { path: 'livros', component: LivrosComponent},
+      { path: 'livros/descricao/:id', component: DescricaoComponent},
       { path: 'livros/criar-livro', component: CriarLivroComponent },
-      { path: 'livros/editar-livro', component: EditarLivroComponent },
+      { path: 'livros/editar-livro/:id', component: EditarLivroComponent },
       { path: 'pedidos', component: PedidosComponent },
       { path: 'pedidos/detalhes', component: DetalhesComponent },
       { path: 'categorias', component: CategoriasComponent },

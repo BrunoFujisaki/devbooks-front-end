@@ -16,7 +16,7 @@ export class CategoriaService {
     return this.client.get<ICategoria[]>(this.URL);
   }
 
-  getCategoriaPorId(id: number): Observable<ICategoria> {
+  getCategoriaPorId(id: string): Observable<ICategoria> {
     return this.client.get<ICategoria>(`${this.URL}/${id}`);
   }
 
@@ -25,10 +25,10 @@ export class CategoriaService {
   }
 
   putCategoria(categoria: ICategoria): Observable<ICategoria> {
-    return this.client.put<ICategoria>(`${this.URL}/${categoria.id}`, categoria);
+    return this.client.put<ICategoria>(this.URL, categoria);
   }
 
-  deleteCategoria(id: number): Observable<void> {
+  deleteCategoria(id: string): Observable<void> {
     return this.client.delete<void>(`${this.URL}/${id}`);
   }
 }

@@ -1,0 +1,10 @@
+<app-main>
+    <a [routerLink]="['/dashboard/livros']" class="go-back">
+        <img src="/icones/dashboard/back.svg" alt="">
+        Voltar
+    </a>
+    @if (livro) {
+        <h1>Descrição de {{ livro.titulo }}</h1>
+        <p>{{ livro.descricao }}</p>
+    }
+</app-main>

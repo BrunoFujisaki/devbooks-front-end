@@ -12,23 +12,25 @@ import { ICategoria } from '../../../../../interfaces/icategoria';
 export class FormularioCategoriaComponent implements OnChanges{
   categoria = input<ICategoria | null>(null);
   submitForm = output<ICategoria>();
-  id: number | null = null;
-  nome: string = '';
-  quantidadeLivros: number | null = null;
-
+  categoriaForm = {
+    id: '',
+    nome: '',
+    quantidade: 0
+  }
+  
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['categoria'] && this.categoria()) {
-      this.id = this.categoria()?.id || null;
-      this.nome = this.categoria()?.nome || '';
-      this.quantidadeLivros = this.categoria()?.quantidadeLivros || null;
+      this.categoriaForm = {
+        id: this.categoria()?.id || '',
+        nome: this.categoria()?.nome || '',
+        quantidade: this.categoria()?.quantidade || 0
+      }
     }
   }
 
   emitirCategoria() {
-    const categoria:ICategoria = {
-      id: this.id,
-      nome: this.nome,
-      quantidadeLivros: this.quantidadeLivros
+    const categoria = {
+      ...this.categoriaForm
     }
     this.submitForm.emit(categoria);
   }

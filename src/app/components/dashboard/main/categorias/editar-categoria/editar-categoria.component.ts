@@ -23,7 +23,7 @@ export class EditarCategoriaComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
 
     if (id) {
-      this.service.getCategoriaPorId(Number(id)).subscribe((categoria) => {
+      this.service.getCategoriaPorId(id).subscribe((categoria) => {
         this.categoria = categoria;
       });
     }

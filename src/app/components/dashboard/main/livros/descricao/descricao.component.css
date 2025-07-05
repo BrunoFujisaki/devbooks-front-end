@@ -1,0 +1,11 @@
+
+.go-back {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    gap: .3em;
+    color: var(--texto);
+    text-decoration: none;
+    padding: .3em;
+    border-radius: 8px;
+}

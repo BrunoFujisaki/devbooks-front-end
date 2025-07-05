@@ -6,43 +6,42 @@
     <div class="form-wrapper-header">
         <ng-content />
     </div>
-    <form>
+    <form (ngSubmit)="emitirLivro()" ngNativeValidate>
         <label>
             Título
-            <input type="text" name="title" required placeholder="Ex: Entendendo Algoritmos">
+            <input [(ngModel)]="livroForm.titulo" type="text" name="title" required placeholder="Ex: Entendendo Algoritmos">
         </label>
         <label>
             Autor
-            <input type="text" name="author" required placeholder="Ex: Aditya Y. Bhargava">
+            <input [(ngModel)]="livroForm.autor" type="text" name="author" required placeholder="Ex: Aditya Y. Bhargava">
         </label>
         <label>
             Categoria
-            <select name="category" class="select-category" required>
+            <select [(ngModel)]="livroForm.categoria" name="category" class="select-category" required>
                 <option value="" selected disabled>Selecione uma categoria</option>
-                <option value="programacao">Programação</option>
-                <option value="frontend">Front End</option>
-                <option value="datascience">Data Science</option>
-                <option value="AI">AI</option>
+                @for (categoria of categorias; track $index) {
+                    <option [value]="categoria.id">{{ categoria.nome }}</option>
+                }
             </select>
         </label>
         <label>
             Descrição
-            <input required type="text" name="descricao" placeholder="Ex: Este guia cativante ...">
+            <input [(ngModel)]="livroForm.descricao" required type="text" name="descricao" placeholder="Ex: Este guia cativante ...">
         </label>
         <label>
             Estoque
-            <input required type="number" name="stock" min="0" step="1" placeholder="Ex: 120">
+            <input [(ngModel)]="livroForm.estoque" required type="number" name="stock" min="0" step="1" placeholder="Ex: 120">
         </label>
         <label>
             Valor
-            <input required type="number" name="price" min="0.01" step="0.1" placeholder="Ex: 29,90">
+            <input [(ngModel)]="livroForm.valor" required type="number" name="price" step="0.1" placeholder="Ex: 29,90">
         </label>
         <label>
             Imagem
-            <input required type="text" name="image" placeholder="Ex: Imagem.png">
+            <input [(ngModel)]="livroForm.imagem" required type="text" name="image" placeholder="Ex: Imagem.png">
         </label>
         <div class="submit-button-wrapper">
-            <button type="submit">Adicionar Livro</button>
+            <button type="submit">Salvar</button>
         </div>
     </form>
 </section>

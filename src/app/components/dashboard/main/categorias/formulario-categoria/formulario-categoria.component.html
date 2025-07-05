@@ -6,10 +6,10 @@
     <div class="form-wrapper-header">
         <ng-content />
     </div>
-    <form (ngSubmit)="emitirCategoria()">
+    <form (ngSubmit)="emitirCategoria()" ngNativeValidate>
         <label>
             Categoria
-            <input [(ngModel)]="nome" type="text" name="category" required placeholder="Ex: Programação">
+            <input [(ngModel)]="categoriaForm.nome" type="text" name="category" required placeholder="Ex: Programação">
         </label>
         <div class="submit-button-wrapper">
             <button type="submit">Salvar</button>
