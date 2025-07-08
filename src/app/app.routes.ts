@@ -12,6 +12,10 @@ import { EditarCategoriaComponent } from './components/dashboard/main/categorias
 import { UsuariosComponent } from './components/dashboard/main/usuarios/usuarios.component';
 import { EnderecoComponent } from './components/dashboard/main/usuarios/endereco/endereco.component';
 import { DescricaoComponent } from './components/dashboard/main/livros/descricao/descricao.component';
+import { AutenticacaoComponent } from './components/autenticacao/autenticacao.component';
+import { RegistroComponent } from './components/autenticacao/registro/registro.component';
+import { LoginComponent } from './components/autenticacao/login/login.component';
+import { LayoutComponent } from './components/layout/layout.component';
 
 export const routes: Routes = [
     {
@@ -34,8 +38,21 @@ export const routes: Routes = [
     ]
   },
   {
+    path: 'autenticacao',
+    component: AutenticacaoComponent,
+    children: [
+      { path: '', redirectTo: 'registro', pathMatch: 'full' },
+      { path: 'registro', component: RegistroComponent },
+      { path: 'login', component: LoginComponent }
+    ]
+  },
+  {
+    path: 'home',
+    component: LayoutComponent,
+  },
+  {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'autenticacao',
     pathMatch: 'full'
   },
 ];

@@ -1,0 +1,19 @@
+<div class="form-wrapper">
+    <div class="form-header">
+        <h1>Login</h1>
+        <p>Entre e retome sua leitura entre códigos<br> e frameworks</p>
+    </div>
+    <form (ngSubmit)="logar()" ngNativeValidate>
+         <label>
+            Email
+            <input [(ngModel)]="email" type="text" name="email" placeholder="Informe seu email">
+        </label>
+        <label>
+            Senha
+            <input [(ngModel)]="senha" type="password" name="senha" placeholder="Crie uma senha">
+        </label>
+        <button class="entrar-button">Entrar</button>
+    </form>
+    <hr>
+    <p class="login">Não tem conta? <a [routerLink]="['/autenticacao/registro']">Cadastre-se</a></p>
+</div>

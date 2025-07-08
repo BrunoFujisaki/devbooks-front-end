@@ -14,8 +14,7 @@ export class FormularioCategoriaComponent implements OnChanges{
   submitForm = output<ICategoria>();
   categoriaForm = {
     id: '',
-    nome: '',
-    quantidade: 0
+    nome: ''
   }
   
   ngOnChanges(changes: SimpleChanges): void {
@@ -23,7 +22,6 @@ export class FormularioCategoriaComponent implements OnChanges{
       this.categoriaForm = {
         id: this.categoria()?.id || '',
         nome: this.categoria()?.nome || '',
-        quantidade: this.categoria()?.quantidade || 0
       }
     }
   }

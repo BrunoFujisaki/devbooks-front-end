@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { TokenService } from '../../services/token.service';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,4 +11,13 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class DashboardComponent {
 
+  constructor(
+    private router: Router,
+    private usuarioService: UsuarioService
+  ) {}
+
+  logout() {
+    this.usuarioService.logout();
+    this.router.navigate(['autenticacao/login']);
+  }
 }
