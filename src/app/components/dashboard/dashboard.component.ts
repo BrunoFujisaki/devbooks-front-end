@@ -18,6 +18,6 @@ export class DashboardComponent {
 
   logout() {
     this.usuarioService.logout();
-    this.router.navigate(['autenticacao/login']);
+    this.router.navigate(['home']);
   }
 }

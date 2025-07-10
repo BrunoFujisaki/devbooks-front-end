@@ -3,6 +3,12 @@ import { Injectable } from '@angular/core';
 import { IUsuario } from '../interfaces/iusuario';
 import { Observable } from 'rxjs';
 
+interface IRegistro {
+  nome: string,
+  email: string,
+  senha: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +18,7 @@ export class RegistroService {
 
   constructor(private client: HttpClient) { }
 
-  registrarUsuario(usuario: IUsuario):Observable<IUsuario> {
+  registrarUsuario(usuario: IRegistro):Observable<IUsuario> {
     return this.client.post<IUsuario>(`${this.URL}/cadastro`, usuario);
   }
 }

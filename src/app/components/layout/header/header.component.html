@@ -1,11 +1,25 @@
+<div class="top-bar">
+    <a [routerLink]="['/dashboard']">menu administrativo</a>
+</div>
 <header>
-    <h1 class="header-titulo"><span>Dev</span>Books();</h1>
-    <div class="botoes">
+    <h1 [routerLink]="['']" class="header-titulo"><span>dev</span>Books();</h1>
+    <div class="header-botoes">
+        @if (usuarioAtual) {
+            <button >
+                <img src="/icones/home_page/person.svg" alt="">
+                Olá, {{ usuarioAtual.nome }}
+            </button>
+        }
+        @else {
+            <button [routerLink]="['/home/login']">
+                <img src="/icones/home_page/person.svg" alt="">
+                login | cadastro
+            </button>
+        }
+
         <button>
-            btn1
-        </button>
-        <button>
-            btn2
+            <img src="/icones/home_page/shopping_basket.svg" alt="">
+            meu carrinho
         </button>
     </div>
 </header>

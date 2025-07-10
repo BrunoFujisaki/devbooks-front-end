@@ -1,7 +1,15 @@
 .form-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 1.4em;
+    width: 600px;
+    padding: 2em 5em;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
 }
 
 .form-header {
@@ -18,11 +26,11 @@
 }
 
 form {
-   display: flex;
-   flex-direction: column;
-   width: 80%;
-   margin: auto;
-   gap: 1.4em;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    gap: 1.4em;
 }
 
 label {
@@ -41,7 +49,7 @@ input {
     color: var(--sub-texto);
     padding: 1em;
     border-radius: 8px;
-    
+
 }
 
 input::placeholder {
@@ -52,6 +60,11 @@ input::placeholder {
 input:focus {
     outline: none;
     border: 2px solid var(--sub-texto);
+}
+
+.input-container {
+    display: flex;
+    gap: 1em;
 }
 
 button {
@@ -72,6 +85,7 @@ button:hover {
 }
 
 .login {
+    text-align: center;
     font-size: 14px;
     color: var(--sub-texto);
 }

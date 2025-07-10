@@ -12,15 +12,18 @@ import { EditarCategoriaComponent } from './components/dashboard/main/categorias
 import { UsuariosComponent } from './components/dashboard/main/usuarios/usuarios.component';
 import { EnderecoComponent } from './components/dashboard/main/usuarios/endereco/endereco.component';
 import { DescricaoComponent } from './components/dashboard/main/livros/descricao/descricao.component';
-import { AutenticacaoComponent } from './components/autenticacao/autenticacao.component';
-import { RegistroComponent } from './components/autenticacao/registro/registro.component';
-import { LoginComponent } from './components/autenticacao/login/login.component';
 import { LayoutComponent } from './components/layout/layout.component';
+import { ListaLivrosComponent } from './components/layout/pages/lista-livros/lista-livros.component';
+import { AuthGuard } from './guards/auth.guard';
+import { CadastroComponent } from './components/layout/pages/cadastro/cadastro.component';
+import { LoginComponent } from './components/layout/pages/login/login.component';
 
 export const routes: Routes = [
     {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
+    data: { role: 'ADMIN' },
     children: [ 
       { path: '', redirectTo: 'home', pathMatch: 'full' }, 
       { path: 'home', component: TelaInicialComponent },
@@ -37,22 +40,28 @@ export const routes: Routes = [
       { path: 'usuarios/endereco', component: EnderecoComponent}
     ]
   },
-  {
-    path: 'autenticacao',
-    component: AutenticacaoComponent,
-    children: [
-      { path: '', redirectTo: 'registro', pathMatch: 'full' },
-      { path: 'registro', component: RegistroComponent },
-      { path: 'login', component: LoginComponent }
-    ]
-  },
+  // {
+  //   path: 'auth',
+  //   component: AutenticacaoComponent,
+  //   children: [
+  //     { path: '', redirectTo: 'cadastro', pathMatch: 'full' },
+  //     { path: 'cadastro', component: RegistroComponent },
+  //     { path: 'login', component: LoginComponent }
+  //   ]
+  // },
   {
     path: 'home',
     component: LayoutComponent,
+    children: [
+      { path: '', redirectTo: 'livros', pathMatch: 'full' },
+      { path: 'livros', component: ListaLivrosComponent },
+      { path: 'login', component:  LoginComponent },
+      { path: 'cadastro', component: CadastroComponent }
+    ]
   },
   {
     path: '',
-    redirectTo: 'autenticacao',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
 ];

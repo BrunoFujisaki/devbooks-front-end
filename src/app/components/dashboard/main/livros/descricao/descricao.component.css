@@ -9,3 +9,7 @@
     padding: .3em;
     border-radius: 8px;
 }
+
+span {
+    color: var(--destaque);
+}

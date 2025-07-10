@@ -2,7 +2,17 @@ import { Injectable } from '@angular/core';
 import { TokenService } from './token.service';
 import { BehaviorSubject } from 'rxjs';
 import { IUsuario } from '../interfaces/iusuario';
-import { jwtDecode } from 'jwt-decode'
+import { jwtDecode, JwtPayload } from 'jwt-decode'
+
+interface IJwtPayload {
+  iss: string;
+  sub: string; 
+  id: string;
+  nome: string;
+  telefone: string;
+  role: string;
+  exp: number;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +29,15 @@ export class UsuarioService {
 
   decodificarJWT() {
     const token = this.tokenService.retornarToken();
-    const user = jwtDecode(token) as IUsuario;
-    this.userSubject.next(user);
+    const decodedPayload = jwtDecode(token) as IJwtPayload;
+    const usuario = {
+      email: decodedPayload.sub,
+      id: decodedPayload.id,
+      nome: decodedPayload.nome,
+      telefone: decodedPayload.telefone,
+      role: decodedPayload.role
+    }
+    this.userSubject.next(usuario);
   }
 
   retornarUser() {
@@ -39,6 +56,13 @@ export class UsuarioService {
 
   estaLogado() {
     return this.tokenService.possuiToken();
+  }
+
+  hasPermission(role: string) {
+    const token = this.tokenService.retornarToken();
+    let user = jwtDecode<JwtPayload>(token) as IUsuario;
+    console.log(user);
+    return user.role === role ? true : false;
   }
 
 }
