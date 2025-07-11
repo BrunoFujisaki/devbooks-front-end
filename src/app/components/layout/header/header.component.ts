@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from '../../../services/usuario.service';
 import { IUsuario } from '../../../interfaces/iusuario';
 import { Subscription } from 'rxjs';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -12,10 +12,11 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   usuarioAtual: IUsuario | null = null;
-  private userSubscription: Subscription | undefined; // Propriedade para armazenar a inscrição
+  userSubscription: Subscription | undefined;
 
   constructor(
-    private userService: UsuarioService
+    private userService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +30,14 @@ export class HeaderComponent implements OnInit {
       this.userSubscription.unsubscribe(); 
     }
   }
+
   signIn() {
     console.log(this.usuarioAtual)
   }
+
+  logout() {
+    this.userService.logout();
+    this.router.navigate(['/home'])
+  }
+
 }

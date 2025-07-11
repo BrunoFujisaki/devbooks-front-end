@@ -5,21 +5,28 @@
     <h1 [routerLink]="['']" class="header-titulo"><span>dev</span>Books();</h1>
     <div class="header-botoes">
         @if (usuarioAtual) {
-            <button >
+            <button [routerLink]="['/home/minha-conta/', usuarioAtual.id]">
                 <img src="/icones/home_page/person.svg" alt="">
-                Olá, {{ usuarioAtual.nome }}
+                minha conta
             </button>
-        }
-        @else {
+            
+        } @else {
             <button [routerLink]="['/home/login']">
                 <img src="/icones/home_page/person.svg" alt="">
                 login | cadastro
             </button>
         }
 
-        <button>
+        <button [routerLink]="['/home/meu-carrinho']">
             <img src="/icones/home_page/shopping_basket.svg" alt="">
             meu carrinho
         </button>
+
+        @if (usuarioAtual) {
+            <button (click)="logout()">
+                <img src="/icones/dashboard/logout.svg" alt="">
+                Sair
+            </button>
+        }
     </div>
 </header>

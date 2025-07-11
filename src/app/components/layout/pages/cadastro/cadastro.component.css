@@ -49,7 +49,7 @@ input {
     color: var(--sub-texto);
     padding: 1em;
     border-radius: 8px;
-
+    border: 1px solid var(--cor-borda);
 }
 
 input::placeholder {
@@ -59,7 +59,6 @@ input::placeholder {
 
 input:focus {
     outline: none;
-    border: 2px solid var(--sub-texto);
 }
 
 .input-container {

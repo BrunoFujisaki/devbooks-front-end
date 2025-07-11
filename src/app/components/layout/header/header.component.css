@@ -16,10 +16,13 @@ header {
     align-items: center;
     background-color: var(--fundo-componentes);
     padding: 1em 8em;
+    position: relative;
+    
 }
 
 .header-titulo {
     font-size: 28px;
+    cursor: pointer;
 }
 
 .header-titulo span {
@@ -40,4 +43,16 @@ header {
     font-family: var(--work-sans);
     background-color: transparent;
     border: none;
+}
+
+ul {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    top: 100%;
+    width: 5%;
+    border-radius: 0 0 8px 8px;
+    background-color: var(--fundo-componentes);
 }

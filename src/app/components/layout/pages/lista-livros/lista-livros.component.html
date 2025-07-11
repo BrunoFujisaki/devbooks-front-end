@@ -1,28 +1,26 @@
-<app-pages>
-    <div class="home-books-wrapper">
-        <div class="home-books-header">
-            <p>Recomendações do Algoritmo</p>
-            <h3>A biblioteca que todo programador sonha em ter</h3>
-            <span></span>
-        </div>
-        <div class="cards">
-            @for (livro of livros; track $index) {
-                <div class="book-card">
-                    <div class="book-img">
-                        <img [src]="`/livros/${livro.imagem}.png`" alt="">
-                    </div>
-                    <div class="book-header">
-                        <h3>{{ livro.titulo }}</h3>
-                        <p>{{ livro.autor }}</p>
-                    </div>
-                    <div class="price-info">
-                        <p class="preco">{{ livro.valor | currency: 'BRL' }}</p>
-                        <button>
-                            <img src="/icones/home_page/shopping_basket.svg" alt="">
-                        </button>
-                    </div>
-                </div>
-            }
-        </div>
+<div class="home-books-wrapper">
+    <div class="home-books-header">
+        <p>Recomendações do Algoritmo</p>
+        <h3>A biblioteca que todo programador sonha em ter</h3>
+        <span></span>
     </div>
-</app-pages>
+    <div class="cards">
+        @for (livro of livros; track $index) {
+        <div class="book-card">
+            <div class="book-img">
+                <img [src]="`/livros/${livro.imagem}.png`" alt="">
+            </div>
+            <div class="book-header">
+                <h3>{{ livro.titulo }}</h3>
+                <p>{{ livro.autor }}</p>
+            </div>
+            <div class="price-info">
+                <p class="preco">{{ livro.valor | currency: 'BRL' }}</p>
+                <button>
+                    <img src="/icones/home_page/shopping_basket.svg" alt="">
+                </button>
+            </div>
+        </div>
+        }
+    </div>
+</div>

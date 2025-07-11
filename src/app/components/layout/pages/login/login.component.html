@@ -1,21 +1,19 @@
-<app-pages>
-    <div class="login-wrapper">
-        <div class="form-header">
-            <h1>Login</h1>
-            <p>Entre e retome sua leitura entre códigos e frameworks</p>
-        </div>
-        <form (ngSubmit)="logar()" ngNativeValidate>
-            <label>
-                Email
-                <input [(ngModel)]="formLogin.email" type="text" name="email" placeholder="Digite seu email">
-            </label>
-            <label>
-                Senha
-                <input [(ngModel)]="formLogin.senha" type="password" name="senha" placeholder="Digite sua senha">
-            </label>
-            <button class="entrar-button">Entrar</button>
-        </form>
-        <hr>
-        <p class="cadastro">Não tem conta? <a [routerLink]="['/home/cadastro']">Cadastre-se</a></p>
+<div class="login-wrapper">
+    <div class="form-header">
+        <h1>Login</h1>
+        <p>Entre e retome sua leitura entre códigos e frameworks</p>
     </div>
-</app-pages>
+    <form (ngSubmit)="logar()" ngNativeValidate>
+        <label>
+            Email
+            <input [(ngModel)]="formLogin.email" type="text" name="email" placeholder="Digite seu email">
+        </label>
+        <label>
+            Senha
+            <input [(ngModel)]="formLogin.senha" type="password" name="senha" placeholder="Digite sua senha">
+        </label>
+        <button class="entrar-button">Entrar</button>
+    </form>
+    <hr>
+    <p class="cadastro">Não tem conta? <a [routerLink]="['/home/cadastro']">Cadastre-se</a></p>
+</div>

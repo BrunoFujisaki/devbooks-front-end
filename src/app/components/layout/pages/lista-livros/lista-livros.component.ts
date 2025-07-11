@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { ILivro } from '../../../../interfaces/ilivro';
 import { LivroService } from '../../../../services/livro.service';
 import { CurrencyPipe } from '@angular/common';
-import { PagesComponent } from "../pages.component";
 
 @Component({
   selector: 'app-lista-livros',
-  imports: [CurrencyPipe, PagesComponent],
+  imports: [CurrencyPipe],
   templateUrl: './lista-livros.component.html',
   styleUrl: './lista-livros.component.css'
 })

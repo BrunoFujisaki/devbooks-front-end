@@ -1,38 +1,36 @@
-<app-pages>
-    <div class="form-wrapper">
-        <div class="form-header">
-            <h1>Cadastrar</h1>
-            <p>Comece sua biblioteca de tecnologia agora!</p>
-        </div>
-        <form (ngSubmit)="cadastrar()" ngNativeValidate>
-            <label>
-                Nome
-                <input [(ngModel)]="formRegistro.nome" type="text" name="nome" placeholder="Informe seu nome">
-            </label>
-            
-            <div class="input-container">
-                <label>
-                    Email
-                    <input [(ngModel)]="formRegistro.email" type="email" name="email" placeholder="Informe seu email">
-                </label>
-                <label>
-                    Telefone
-                    <input [(ngModel)]="formRegistro.telefone" type="text" name="telefone" placeholder="(XX) XXXX-XXXX">
-                </label>
-            </div>
-            <div class="input-container">
-                <label>
-                    Senha
-                    <input [(ngModel)]="formRegistro.senha" type="password" name="senha" placeholder="Crie uma senha">
-                </label>
-                <label>
-                    Confirmar senha
-                    <input type="password" name="senha" placeholder="Confirme sua senha">
-                </label>
-            </div>
-            <button>Cadastrar</button>
-        </form>
-        <hr>
-        <p class="login">Já tem cadastro? <a [routerLink]="['/home/login']">Faça login</a></p>
+<div class="form-wrapper">
+    <div class="form-header">
+        <h1>Cadastrar</h1>
+        <p>Comece sua biblioteca de tecnologia agora!</p>
     </div>
-</app-pages>
+    <form (ngSubmit)="cadastrar()" ngNativeValidate>
+        <label>
+            Nome
+            <input [(ngModel)]="formRegistro.nome" type="text" name="nome" placeholder="Informe seu nome">
+        </label>
+
+        <div class="input-container">
+            <label>
+                Email
+                <input [(ngModel)]="formRegistro.email" type="email" name="email" placeholder="Informe seu email">
+            </label>
+            <label>
+                Telefone
+                <input [(ngModel)]="formRegistro.telefone" type="text" name="telefone" placeholder="(XX) XXXX-XXXX">
+            </label>
+        </div>
+        <div class="input-container">
+            <label>
+                Senha
+                <input [(ngModel)]="formRegistro.senha" type="password" name="senha" placeholder="Crie uma senha">
+            </label>
+            <label>
+                Confirmar senha
+                <input type="password" name="senha" placeholder="Confirme sua senha">
+            </label>
+        </div>
+        <button>Cadastrar</button>
+    </form>
+    <hr>
+    <p class="login">Já tem cadastro? <a [routerLink]="['/home/login']">Faça login</a></p>
+</div>

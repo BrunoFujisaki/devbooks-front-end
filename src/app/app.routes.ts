@@ -17,6 +17,8 @@ import { ListaLivrosComponent } from './components/layout/pages/lista-livros/lis
 import { AuthGuard } from './guards/auth.guard';
 import { CadastroComponent } from './components/layout/pages/cadastro/cadastro.component';
 import { LoginComponent } from './components/layout/pages/login/login.component';
+import { MinhaContaComponent } from './components/layout/pages/minha-conta/minha-conta.component';
+import { MeuCarrinhoComponent } from './components/layout/pages/meu-carrinho/meu-carrinho.component';
 
 export const routes: Routes = [
     {
@@ -40,15 +42,6 @@ export const routes: Routes = [
       { path: 'usuarios/endereco', component: EnderecoComponent}
     ]
   },
-  // {
-  //   path: 'auth',
-  //   component: AutenticacaoComponent,
-  //   children: [
-  //     { path: '', redirectTo: 'cadastro', pathMatch: 'full' },
-  //     { path: 'cadastro', component: RegistroComponent },
-  //     { path: 'login', component: LoginComponent }
-  //   ]
-  // },
   {
     path: 'home',
     component: LayoutComponent,
@@ -56,7 +49,9 @@ export const routes: Routes = [
       { path: '', redirectTo: 'livros', pathMatch: 'full' },
       { path: 'livros', component: ListaLivrosComponent },
       { path: 'login', component:  LoginComponent },
-      { path: 'cadastro', component: CadastroComponent }
+      { path: 'cadastro', component: CadastroComponent },
+      { path: 'minha-conta/:id', component: MinhaContaComponent, canActivate: [AuthGuard] },
+      { path: 'meu-carrinho', component: MeuCarrinhoComponent, canActivate: [AuthGuard] }
     ]
   },
   {

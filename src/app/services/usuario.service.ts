@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { TokenService } from './token.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IUsuario } from '../interfaces/iusuario';
 import { jwtDecode, JwtPayload } from 'jwt-decode'
+import { HttpClient } from '@angular/common/http';
 
 interface IJwtPayload {
   iss: string;
@@ -18,10 +19,14 @@ interface IJwtPayload {
   providedIn: 'root'
 })
 export class UsuarioService {
-
+  
+  URL: string = 'http://localhost:8080/usuarios';
   private userSubject = new BehaviorSubject<IUsuario | null>(null);
 
-  constructor(private tokenService: TokenService) { 
+  constructor(
+    private client: HttpClient,
+    private tokenService: TokenService
+  ) { 
     if (this.tokenService.possuiToken()) {
       this.decodificarJWT();
     }
@@ -35,7 +40,8 @@ export class UsuarioService {
       id: decodedPayload.id,
       nome: decodedPayload.nome,
       telefone: decodedPayload.telefone,
-      role: decodedPayload.role
+      role: decodedPayload.role,
+      enderecoDTO: null
     }
     this.userSubject.next(usuario);
   }
@@ -63,6 +69,14 @@ export class UsuarioService {
     let user = jwtDecode<JwtPayload>(token) as IUsuario;
     console.log(user);
     return user.role === role ? true : false;
+  }
+
+  getUsuario(id: string):Observable<IUsuario> {
+    return this.client.get<IUsuario>(`${this.URL}/${id}`);
+  }
+
+  putUsuario(usuario: IUsuario) {
+    return this.client.put(this.URL, usuario);
   }
 
 }

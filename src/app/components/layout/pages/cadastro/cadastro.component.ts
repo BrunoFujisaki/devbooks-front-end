@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { PagesComponent } from "../pages.component";
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CadastroService } from '../../../../services/cadastro.service';
 
 @Component({
   selector: 'app-cadastro',
-  imports: [PagesComponent, FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.css'
 })
