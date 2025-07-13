@@ -1,7 +1,135 @@
-.carrinho-wrapper {
+.my-cart-wrapper {
     margin: 2em 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     gap: 2em;
 }
+
+.itens {
+    background-color: var(--fundo-componentes);
+    padding: 1em;
+    border-radius: 8px;
+}
+
+.itens h1 {
+    padding-bottom: .5em;
+}
+
+.book-wrapper {
+    display: flex;
+    gap: 1em;
+    padding: 1em;
+    align-items: center;
+    justify-content: space-between;
+    width: 700px;
+}
+
+.book {
+    display: flex;
+    gap: 1em;
+}
+
+.book-image {
+    width: 120px;
+    height: 183px;
+}
+
+.book-image img {
+    width: 100%;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
+}
+
+.title {
+    font-size: 22px;
+}
+
+.author {
+    font-size: 16px;
+}
+
+.category {
+    font-size: 14px;
+    color: var(--sub-texto);
+}
+
+.quantidade-wrapper {
+    margin-top: 1em;
+    display: flex;
+    gap: .5em;
+}
+
+.quantidade-wrapper input {
+    width: 40px;
+    padding: .8em 1em;
+    font-size: 14px;
+    text-align: center;
+    background-color: var(--texto);
+    font-family: var(--work-sans);
+    border: none;
+    border-radius: 8px;
+}
+
+.quantidade-wrapper button {
+    padding: .5em;
+    width: 40px;
+    font-family: var(--work-sans);
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: var(--fundo-secundario);
+    color: var(--texto);
+    border: none;
+}
+
+.remove {
+    margin-top: 1em;
+    width: 80px;
+    background-color: var(--fundo-secundario);
+    font-family: var(--work-sans);
+    border: none;
+    border-radius: 8px;
+    padding: .5em;
+    color: var(--texto);
+}
+
+.value {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.summary-wrapper {
+    width: 300px;
+    background-color: var(--fundo-componentes);
+    padding: 1em;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.summary-value {
+    display: flex;
+    justify-content: space-between;
+}
+
+.summary-value div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.finalizar-pedido {
+    padding: .8em;
+    border: none;
+    background-color: var(--destaque);
+    color: var(--texto);
+    font-family: var(--work-sans);
+    border-radius: 8px;
+}
+
+

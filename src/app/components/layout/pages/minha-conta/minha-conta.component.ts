@@ -46,14 +46,14 @@ export class MinhaContaComponent implements OnInit {
           this.formUsuario.nome = this.usuario.nome;
           this.formUsuario.email = this.usuario.email;
           this.formUsuario.telefone = this.usuario.telefone;
-          if (this.usuario.enderecoDTO) {
-            this.formUsuario.cep = this.usuario.enderecoDTO.cep;
-            this.formUsuario.rua = this.usuario.enderecoDTO.logradouro;
-            this.formUsuario.numero = this.usuario.enderecoDTO.numero;
-            this.formUsuario.complemento = this.usuario.enderecoDTO.complemento;
-            this.formUsuario.bairro = this.usuario.enderecoDTO.bairro;
-            this.formUsuario.cidade = this.usuario.enderecoDTO.localidade;
-            this.formUsuario.uf = this.usuario.enderecoDTO.uf;
+          if (this.usuario.endereco) {
+            this.formUsuario.cep = this.usuario.endereco.cep;
+            this.formUsuario.rua = this.usuario.endereco.logradouro;
+            this.formUsuario.numero = this.usuario.endereco.numero;
+            this.formUsuario.complemento = this.usuario.endereco.complemento;
+            this.formUsuario.bairro = this.usuario.endereco.bairro;
+            this.formUsuario.cidade = this.usuario.endereco.localidade;
+            this.formUsuario.uf = this.usuario.endereco.uf;
           }
         }
       })
@@ -81,7 +81,7 @@ export class MinhaContaComponent implements OnInit {
       email: this.formUsuario.email,
       telefone: this.formUsuario.telefone,
       role: 'USER',
-      enderecoDTO: {
+      endereco: {
         cep: this.formUsuario.cep,
         logradouro: this.formUsuario.rua,
         numero: this.formUsuario.numero,

@@ -5,28 +5,27 @@
     <h1 [routerLink]="['']" class="header-titulo"><span>dev</span>Books();</h1>
     <div class="header-botoes">
         @if (usuarioAtual) {
-            <button [routerLink]="['/home/minha-conta/', usuarioAtual.id]">
-                <img src="/icones/home_page/person.svg" alt="">
-                minha conta
-            </button>
-            
+        <button [routerLink]="['/home/minha-conta/', usuarioAtual.id]">
+            <img src="/icones/home_page/person.svg" alt="">
+            minha conta
+        </button>
+
         } @else {
-            <button [routerLink]="['/home/login']">
-                <img src="/icones/home_page/person.svg" alt="">
-                login | cadastro
-            </button>
+        <button [routerLink]="['/home/login']">
+            <img src="/icones/home_page/person.svg" alt="">
+            login | cadastro
+        </button>
         }
 
-        <button [routerLink]="['/home/meu-carrinho']">
+        @if (usuarioAtual) {
+        <button [routerLink]="['/home/meu-carrinho/', usuarioAtual.id]">
             <img src="/icones/home_page/shopping_basket.svg" alt="">
             meu carrinho
         </button>
-
-        @if (usuarioAtual) {
-            <button (click)="logout()">
-                <img src="/icones/dashboard/logout.svg" alt="">
-                Sair
-            </button>
+        <button (click)="logout()">
+            <img src="/icones/dashboard/logout.svg" alt="">
+            Sair
+        </button>
         }
     </div>
 </header>

@@ -16,7 +16,7 @@
             </div>
             <div class="price-info">
                 <p class="preco">{{ livro.valor | currency: 'BRL' }}</p>
-                <button>
+                <button (click)="adicionarAoCarrinho(livro)">
                     <img src="/icones/home_page/shopping_basket.svg" alt="">
                 </button>
             </div>

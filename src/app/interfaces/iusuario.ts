@@ -6,5 +6,5 @@ export interface IUsuario {
     email: string,
     telefone: string,
     role: string,
-    enderecoDTO: IEndereco | null
+    endereco: IEndereco | null
 }

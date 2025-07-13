@@ -1,16 +1,47 @@
-<div class="carrinho-wrapper">
-    <div class="livro">
-        <div class="livro-imagem">
-            <img src="/livros/codigo_limpo.png" alt="">
-        </div>
-        <p>ola</p>
+<div class="my-cart-wrapper">
+
+    <div class="itens">
+        <h1>Meu Carrinho</h1>
+        <hr />
+        @for (item of carrinho.itens; track $index) {
+            <div class="book-wrapper">
+                <div class="book">
+                    <div class="book-image">
+                        <img [src]="`/livros/${item.livro.imagem}.png`" alt="">
+                    </div>
+                    <div class="book-info">
+                        <h3 class="title">{{ item.livro.titulo }}</h3>
+                        <p class="author">por {{ item.livro.autor }}</p>
+                        <p class="category">{{ item.livro.categoria.nome }}</p>
+                        <div class="quantidade-wrapper">
+                            <button (click)="removerQuantidade(item)">-</button>
+                            <input type="number" [value]="item.quantidade">
+                            <button (click)="adicionarQuantidade(item)">+</button>
+                        </div>
+                        <button (click)="removerDoCarrinho(item)" class="remove">Remover</button>
+                    </div>
+                </div>
+                <p class="value">{{item.valor| currency: 'BRL'}}</p>
+            </div>
+            <hr />
+        }
+        
     </div>
-    <div class="resumo wrapper">
+
+    <div class="summary-wrapper">
         <h3>Resumo do pedido</h3>
         <hr />
-        <p>SubTotal: <span>R$423,40</span></p>
-        <p>Frete: <span>Grátis</span></p>
+        <div class="summary-value">
+            <div>
+                <p>Sub total:</p>
+                <p>Frete: </p>
+            </div>
+            <div>
+                <p>{{ carrinho.valorTotal | currency: 'BRL' }}</p>
+                <p>Grátis</p>
+            </div>
+        </div>
         <hr />
-        <button>Fechar pedido</button>
+        <button class="finalizar-pedido">Fechar pedido</button>
     </div>
 </div>

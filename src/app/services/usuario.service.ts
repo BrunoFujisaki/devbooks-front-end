@@ -41,7 +41,7 @@ export class UsuarioService {
       nome: decodedPayload.nome,
       telefone: decodedPayload.telefone,
       role: decodedPayload.role,
-      enderecoDTO: null
+      endereco: null
     }
     this.userSubject.next(usuario);
   }

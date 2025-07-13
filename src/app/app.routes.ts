@@ -51,7 +51,7 @@ export const routes: Routes = [
       { path: 'login', component:  LoginComponent },
       { path: 'cadastro', component: CadastroComponent },
       { path: 'minha-conta/:id', component: MinhaContaComponent, canActivate: [AuthGuard] },
-      { path: 'meu-carrinho', component: MeuCarrinhoComponent, canActivate: [AuthGuard] }
+      { path: 'meu-carrinho/:id', component: MeuCarrinhoComponent, canActivate: [AuthGuard] }
     ]
   },
   {
