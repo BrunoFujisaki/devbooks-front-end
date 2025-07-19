@@ -1,26 +1,47 @@
+<div class="lista-livros-header">
+  <p>Recomendações do Algoritmo</p>
+  <h3>A biblioteca que todo programador sonha em ter</h3>
+  <span></span>
+</div>
+
 <div class="home-books-wrapper">
-    <div class="home-books-header">
-        <p>Recomendações do Algoritmo</p>
-        <h3>A biblioteca que todo programador sonha em ter</h3>
-        <span></span>
-    </div>
-    <div class="cards">
-        @for (livro of livros; track $index) {
+
+  <div class="home-books-header">
+    <h3>Aprofunde-se em:</h3>
+    <select [(ngModel)]="filtroCategoria" name="categorias" class="filter" (change)="filtrarLivros()" required>
+      <option value="" selected>Todos</option>
+      @for (categoria of categorias; track $index) {
+      <option [value]="categoria">{{ categoria }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="cards">
+    <swiper-container class="mySwiper" [slidesPerView]="5" [spaceBetween]="30" [pagination]="{ clickable: true }"
+      [navigation]="true" [autoplay]="{ delay: 2500, disableOnInteraction: false }">
+      @for (livro of livrosFiltrados; track livro.id) {
+      <swiper-slide>
         <div class="book-card">
-            <div class="book-img">
-                <img [src]="`/livros/${livro.imagem}.png`" alt="">
+          <div class="book-img">
+            <img [src]="livro.imagem" alt="">
+          </div>
+          <div class="book-header">
+            <h3>{{ livro.titulo }}</h3>
+            <p>por {{ livro.autor }}</p>
+            <p>{{ livro.categoria.nome }}</p>
+          </div>
+          <div class="price-info">
+            <p class="preco">{{ livro.valor | currency: 'BRL' }}</p>
+            <div class="details">
+              <a [routerLink]="['/home/livro/', livro.id]" class="see-more">Detalhes</a>
+              <button (click)="adicionarAoCarrinho(livro)">
+                <img src="/icones/home_page/shopping_basket.svg" alt="">
+              </button>
             </div>
-            <div class="book-header">
-                <h3>{{ livro.titulo }}</h3>
-                <p>{{ livro.autor }}</p>
-            </div>
-            <div class="price-info">
-                <p class="preco">{{ livro.valor | currency: 'BRL' }}</p>
-                <button (click)="adicionarAoCarrinho(livro)">
-                    <img src="/icones/home_page/shopping_basket.svg" alt="">
-                </button>
-            </div>
+          </div>
         </div>
-        }
-    </div>
+      </swiper-slide>
+      }
+    </swiper-container>
+  </div>
 </div>

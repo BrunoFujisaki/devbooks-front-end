@@ -1,68 +1,25 @@
 <div class="minha-conta-wrapper">
     <div class="minha-conta-header">
-        <h1>Olá {{usuario.nome}}</h1>
-        <button (click)="editar()">Editar</button>
+        <h1>Sua conta</h1>
     </div>
-    <hr />
-    <form (ngSubmit)="salvar()">
-        <label>
-            Nome
-            <input [(ngModel)]="formUsuario.nome" type="text" name="nome" [disabled]="inputDesabilitado">
-        </label>
-        <div class="input-wrapper">
-            <label>
-                Email
-                <input [(ngModel)]="formUsuario.email" type="text" name="email" [disabled]="inputDesabilitado">
-            </label>
-            <label>
-                Telefone
-                <input [(ngModel)]="formUsuario.telefone" type="text" name="telefone" [disabled]="inputDesabilitado">
-            </label>
+    <div class="minha-conta-cards">
+        <div class="card" [routerLink]="['/home/minha-conta/editar']">
+            <div>
+                <img src="/icones/home_page/person_edit.svg" alt="">
+            </div>
+            <div>
+                <h3>Suas informações</h3>
+                <p>Alterar e ver suas informações pessoais</p>
+            </div>
         </div>
-        <h1>Endereço</h1>
-        <hr />
-        <label>
-            Cep
-            <input 
-                [(ngModel)]="formUsuario.cep" 
-                type="text" 
-                name="cep" 
-                [disabled]="inputDesabilitado"
-                (input)="buscarEnderecoPorCep()"
-                >
-        </label>
-        <div class="input-wrapper">
-            <label>
-                Rua
-                <input [(ngModel)]="formUsuario.rua" type="text" name="rua" [disabled]="inputDesabilitado">
-            </label>
-            <label>
-                Número
-                <input [(ngModel)]="formUsuario.numero" type="text" name="numero" [disabled]="inputDesabilitado">
-            </label>
+        <div class="card" [routerLink]="['/home/minha-conta/pedidos']">
+            <div>
+                <img src="/icones/home_page/orders.svg" alt="">
+            </div>
+            <div>
+                <h3>Seus pedidos</h3>
+                <p>Acompanhe seu pedidos</p>
+            </div>
         </div>
-        <div class="input-wrapper">
-            <label>
-                Complemento
-                <input [(ngModel)]="formUsuario.complemento" [(ngModel)]="formUsuario.complemento" type="text" name="complemento" [disabled]="inputDesabilitado">
-            </label>
-            <label>
-                Bairro
-                <input [(ngModel)]="formUsuario.bairro" [(ngModel)]="formUsuario.bairro" type="text" name="bairro" [disabled]="inputDesabilitado">
-            </label>
-        </div>
-        <div class="input-wrapper">
-            <label>
-                Cidade
-                <input [(ngModel)]="formUsuario.cidade" type="text" name="cidade" [disabled]="inputDesabilitado">
-            </label>
-            <label>
-                Uf
-                <input [(ngModel)]="formUsuario.uf" type="text" name="estado" [disabled]="inputDesabilitado">
-            </label>
-        </div>
-        <div class="submit-button-wrapper">
-            <button type="submit">Salvar</button>
-        </div>
-    </form>
+    </div>
 </div>

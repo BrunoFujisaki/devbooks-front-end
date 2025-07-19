@@ -3,7 +3,7 @@
         <div class="sidebar-header">
             <h1><span>dev</span>Books();</h1>
         </div>
-        <hr/>
+        <hr />
         <ul>
             <li>
                 <a [routerLink]="['/dashboard/home']">
@@ -23,7 +23,7 @@
                     Pedidos
                 </a>
             </li>
-            
+
             <li>
                 <a [routerLink]="['/dashboard/categorias']">
                     <img src="/icones/dashboard/category.svg" alt="">
@@ -33,23 +33,25 @@
             <li>
                 <a [routerLink]="['/dashboard/usuarios']">
                     <img src="/icones/dashboard/users.svg" alt="">
-                   Usuários
+                    Usuários
                 </a>
             </li>
         </ul>
-        <hr/>
+        <hr />
         <div class="sidebar-footer">
-            <div class="user-profile">
-                <img src="/icones/dashboard/profile-icon.png" alt="">
-                <div>
-                    <p>Bruno</p>
-                    <p class="email">bruno&#64;email.com</p>
+            @if (usuarioAtual) {
+                <div class="user-profile">
+                    <img src="/icones/dashboard/profile-icon.png" alt="">
+                    <div>
+                        <p>{{usuarioAtual.nome}}</p>
+                        <p class="email">{{usuarioAtual.email}}</p>
+                    </div>
                 </div>
-            </div>
-            <button class="logout-button" (click)="logout()">
-                <img src="/icones/dashboard/logout.svg" alt="">
-                Sair
-            </button>
+                <button class="logout-button" (click)="logout()">
+                    <img src="/icones/dashboard/logout.svg" alt="">
+                    Sair
+                </button>
+            }
         </div>
     </aside>
     <div class="main">

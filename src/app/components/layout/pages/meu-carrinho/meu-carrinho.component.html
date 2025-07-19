@@ -7,7 +7,7 @@
             <div class="book-wrapper">
                 <div class="book">
                     <div class="book-image">
-                        <img [src]="`/livros/${item.livro.imagem}.png`" alt="">
+                        <img [src]="item.livro.imagem" alt="">
                     </div>
                     <div class="book-info">
                         <h3 class="title">{{ item.livro.titulo }}</h3>
@@ -42,6 +42,6 @@
             </div>
         </div>
         <hr />
-        <button class="finalizar-pedido">Fechar pedido</button>
+        <button (click)="fecharPedido()" class="finalizar-pedido">Fechar pedido</button>
     </div>
 </div>

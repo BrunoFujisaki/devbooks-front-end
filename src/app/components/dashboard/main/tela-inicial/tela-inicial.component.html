@@ -1,13 +1,17 @@
 <section class="dashboard-home">
     <div class="home-header">
-        <h1>Olá, Bruno!</h1>
+        <h1>Olá, {{usuario?.nome}}!</h1>
         <p>Bem-vindo ao seu painel de gestão. Aqui você pode acompanhar as principais métricas e informações do seu negócio.</p>
-        <p class="data">terça-feira, 1 de julho de 2025</p>
+        <p class="data">{{ data | date:'dd/MM/yyyy, HH:mm:ss':'pt-BR' }}</p>
     </div>
 
     <div class="home-cards">
         <div>
-            <h1 class="valor-destaque">R$450,90</h1>
+            @if (estatisticas?.totalDeVendas) {
+                <h1 class="valor-destaque">{{estatisticas?.totalDeVendas | currency: 'BRL'}}</h1>
+            } @else {
+                <h1 class="valor-destaque">R$ 0</h1>
+            }
             <p>Total de vendas</p>
         </div>
         <button>
@@ -16,7 +20,7 @@
     </div>
     <div class="home-cards">
         <div>
-            <h1 class="valor-destaque">20</h1>
+            <h1 class="valor-destaque">{{estatisticas?.totalDeLivros}}</h1>
             <p>Quantidade de livros</p>
         </div>
         <button>
@@ -25,7 +29,7 @@
     </div>
     <div class="home-cards">
         <div>
-            <h1 class="valor-destaque">100</h1>
+            <h1 class="valor-destaque">{{estatisticas?.totalDeUsuarios}}</h1>
             <p>Quantidade de usuários</p>
         </div>
         <button>

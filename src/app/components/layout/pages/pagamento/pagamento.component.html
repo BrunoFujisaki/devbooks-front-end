@@ -1,0 +1,105 @@
+<div class="pagamento-wrapper">
+    <h1>Finalizar compra</h1>
+    <hr>
+    <div class="pagamento-detalhes">
+        <h3>Detalhes do Pagamento</h3>
+        <form (ngSubmit)="pagarPedido(carrinho.id)" ngNativeValidate>
+            <label>
+                Número do Cartão
+                <input [(ngModel)]="formPagamento.numeroCartao" type="text" name="card-number"
+                    placeholder="0000 0000 0000 0000" required>
+            </label>
+            <label>
+                Nome no Cartão
+                <input [(ngModel)]="formPagamento.nomeCartao" type="text" name="card-name" placeholder="Nome Completo" required>
+            </label>
+            <label>
+                Data de Validade
+                <input [(ngModel)]="formPagamento.dataValidade" type="text" name="card-date" placeholder="MM/AA" re>
+            </label>
+            <label>
+                CVV
+                <input [(ngModel)]="formPagamento.cvv" type="text" name="card-cvv" placeholder="XXX" required>
+            </label>
+            <h1>Endereço</h1>
+        <hr />
+        <label>
+            Cep
+            <input 
+                [(ngModel)]="formPagamento.cep" 
+                type="text" 
+                name="cep" 
+                (input)="buscarEnderecoPorCep()"
+                required
+                >
+        </label>
+        <div class="input-wrapper">
+            <label>
+                Rua
+                <input [(ngModel)]="formPagamento.rua" type="text" name="rua" required>
+            </label>
+            <label>
+                Número
+                <input [(ngModel)]="formPagamento.numero" type="text" name="numero" required>
+            </label>
+        </div>
+        <div class="input-wrapper">
+            <label>
+                Complemento
+                <input [(ngModel)]="formPagamento.complemento" [(ngModel)]="formPagamento.complemento" type="text" name="complemento" required>
+            </label>
+            <label>
+                Bairro
+                <input [(ngModel)]="formPagamento.bairro" [(ngModel)]="formPagamento.bairro" type="text" name="bairro" required>
+            </label>
+        </div>
+        <div class="input-wrapper">
+            <label>
+                Cidade
+                <input [(ngModel)]="formPagamento.cidade" type="text" name="cidade" required>
+            </label>
+            <label>
+                Uf
+                <input [(ngModel)]="formPagamento.uf" type="text" name="estado" required>
+            </label>
+        </div>
+            <hr />
+            <button class="finalizar-pedido">Pagar</button>
+        </form>
+    </div>
+    <div class="summary-wrapper">
+        <h3>Resumo do pedido</h3>
+        <hr />
+        <div class="summary-card-wrapper">
+            @for (item of carrinho.itens; track $index) {
+            <div class="card">
+                <div class="container-image">
+                    <img [src]="`/livros/${item.livro.imagem}.png`" alt="">
+                </div>
+                <div class="card-info">
+                    <div>
+                        <h3>{{item.livro.titulo}}</h3>
+                        <p class="autor">{{ item.livro.autor }}</p>
+                        <p class="categoria">{{ item.livro.categoria.nome }}</p>
+                    </div>
+                    <p class="valor">
+                        {{item.quantidade}} x {{item.valor | currency: 'BRL'}} = {{item.quantidade * item.valor |
+                        currency: 'BRL'}}
+                    </p>
+                </div>
+            </div>
+            }
+        </div>
+        <hr />
+        <div class="summary-value">
+            <div>
+                <p>Sub total:</p>
+                <p>Frete: </p>
+            </div>
+            <div>
+                <p>{{ carrinho.valorTotal | currency: 'BRL'}}</p>
+                <p>Grátis</p>
+            </div>
+        </div>
+    </div>
+</div>

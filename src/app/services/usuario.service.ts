@@ -64,19 +64,28 @@ export class UsuarioService {
     return this.tokenService.possuiToken();
   }
 
-  hasPermission(role: string) {
+  transformarToken() {
     const token = this.tokenService.retornarToken();
-    let user = jwtDecode<JwtPayload>(token) as IUsuario;
-    console.log(user);
+    const user = jwtDecode<JwtPayload>(token) as IUsuario;
+    return user;
+  }
+
+  hasPermission(role: string) {
+    const user = this.transformarToken();
     return user.role === role ? true : false;
   }
 
-  getUsuario(id: string):Observable<IUsuario> {
-    return this.client.get<IUsuario>(`${this.URL}/${id}`);
+  getUsuario():Observable<IUsuario> {
+    const user = this.transformarToken();
+    return this.client.get<IUsuario>(`${this.URL}/${user.id}`);
   }
 
   putUsuario(usuario: IUsuario) {
     return this.client.put(this.URL, usuario);
+  }
+
+  getUsuarios():Observable<IUsuario[]> {
+    return this.client.get<IUsuario[]>(this.URL);
   }
 
 }

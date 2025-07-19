@@ -28,8 +28,12 @@ export class CarrinhoService {
     return this.client.post(this.URL, dadosAdicionarAoCarrinho)
   }
 
-  getItens(id: string):Observable<ICarrinho> {
+  getCarrinho(id: string):Observable<ICarrinho> {
     return this.client.get<ICarrinho>(`${this.URL}/${id}`);
+  }
+
+  getItens():Observable<ICarrinho> {
+    return this.client.get<ICarrinho>(this.URL);
   }
 
   removerQuantidadeDoItem(carrinhoItemId: CarrinhoItemId) {

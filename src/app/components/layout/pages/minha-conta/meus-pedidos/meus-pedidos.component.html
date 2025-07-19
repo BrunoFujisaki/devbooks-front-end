@@ -1,0 +1,41 @@
+<div class="seus-pedidos-wrapper">
+    <h1>Seus Pedidos</h1>
+    <div class="pedidos">
+        @for (pedido of pedidos; track $index) {
+        <div class="pedido-wrapper">
+            <h3>Pedido: {{pedido.id}}</h3>
+            <div class="pedido-info">
+                <h3>Dados</h3>
+                <p>Cliente: <span>{{pedido.usuario.nome}}</span></p>
+                <p>Data: <span>{{ pedido.data | date:'dd/MM/yyyy' }}, {{ pedido.data | date:'HH:mm':'pt-BR'}}</span></p>
+                <p>Status: <span>{{pedido.status}}</span></p>
+                <p>Total: <span>{{pedido.valorTotal | currency: 'BRL'}}</span></p>
+                <hr />
+                <h3>Endereço</h3>
+                <p>CEP: <span>{{pedido.endereco.cep}}</span></p>
+                <p>Bairro: <span>{{pedido.endereco.bairro}}</span></p>
+                <p>Complemento: <span>{{pedido.endereco.complemento}}</span></p>
+                <p>Cidade: <span>{{pedido.endereco.localidade}}</span></p>
+                <p>Logradouro: <span>{{pedido.endereco.logradouro}}</span></p>
+                <p>Número: <span>{{pedido.endereco.numero}}</span></p>
+                <p>UF: <span>{{pedido.endereco.uf}}</span></p>
+            </div>
+            <h2>Itens do Pedido</h2>
+            @for (item of pedido.itens; track $index) {
+            <div class="item">
+                <div class="item-imagem">
+                    <img [src]="`/livros/${item.livro.imagem}.png`" alt="">
+                </div>
+                <div>
+                    <h3>{{item.livro.titulo}}</h3>
+                    <p>{{item.quantidade}} x {{item.valor | currency: 'BRL'}} = {{item.quantidade*item.valor}}</p>
+                </div>
+            </div>
+            }
+            @if (pedido.status === 'PROCESSANDO') {
+            <a [routerLink]="['/home/pagamento/', pedido.id]">Pagar</a>
+            }
+        </div>
+        }
+    </div>
+</div>

@@ -1,11 +1,13 @@
-<div class="top-bar">
-    <a [routerLink]="['/dashboard']">menu administrativo</a>
-</div>
+@if (usuarioAtual?.role == 'ADMIN') {
+    <div class="top-bar">
+        <a [routerLink]="['/dashboard']">menu administrativo</a>
+    </div>
+}
 <header>
     <h1 [routerLink]="['']" class="header-titulo"><span>dev</span>Books();</h1>
     <div class="header-botoes">
         @if (usuarioAtual) {
-        <button [routerLink]="['/home/minha-conta/', usuarioAtual.id]">
+        <button [routerLink]="['/home/minha-conta']">
             <img src="/icones/home_page/person.svg" alt="">
             minha conta
         </button>
@@ -18,7 +20,7 @@
         }
 
         @if (usuarioAtual) {
-        <button [routerLink]="['/home/meu-carrinho/', usuarioAtual.id]">
+        <button [routerLink]="['/home/meu-carrinho']">
             <img src="/icones/home_page/shopping_basket.svg" alt="">
             meu carrinho
         </button>

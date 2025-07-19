@@ -1,20 +1,25 @@
-.pedido-wrapper {
+.seus-pedidos-wrapper {
+    width: 800px;
+    margin: 2em auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.pedidos {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
-.go-back {
+.pedido-wrapper {
+    background-color: var(--fundo-componentes);
     display: flex;
-    width: fit-content;
-    align-items: center;
-    gap: .3em;
-    color: var(--texto);
-    text-decoration: none;
-    padding: .3em;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
     border-radius: 8px;
 }
-
 
 .pedido-info {
     display: flex;
@@ -49,4 +54,15 @@
 
 .item div p {
     color: var(--sub-texto);
+}
+
+a {
+    text-decoration: none;
+    font-family: var(--work-sans);
+    color: var(--destaque);
+    font-weight: bold;
+    background-color: var(--fundo-secundario);
+    width: fit-content;
+    padding: .5em;
+    border-radius: 8px;
 }

@@ -9,5 +9,5 @@ import { RouterLink } from '@angular/router';
   styleUrl: './endereco.component.css'
 })
 export class EnderecoComponent {
-
+  //RETIRAR COMPONENTE
 }

@@ -18,8 +18,9 @@ li {
   --texto: #F5F5F5;
   --sub-texto: #f5f5f58f;
   --cor-borda: rgba(109, 109, 109, 0.37);
-
-  --destaque: #7693FF;
+  
+  --destaque1: #7693FF;
+  --destaque: #c3622d;
 
   --work-sans: 'Work Sans'
 }

@@ -1,0 +1,26 @@
+<div class="editar-conta-wrapper">
+    <div class="editar-conta-header">
+        <h1>Olá {{usuario?.nome}}</h1>
+        <button (click)="editar()">Editar</button>
+    </div>
+    <hr />
+    <form (ngSubmit)="salvar()">
+        <label>
+            Nome
+            <input [(ngModel)]="formUsuario.nome" type="text" name="nome" [disabled]="inputDesabilitado">
+        </label>
+        <div class="input-wrapper">
+            <label>
+                Email
+                <input [(ngModel)]="formUsuario.email" type="text" name="email" [disabled]="inputDesabilitado">
+            </label>
+            <label>
+                Telefone
+                <input [(ngModel)]="formUsuario.telefone" type="text" name="telefone" [disabled]="inputDesabilitado">
+            </label>
+        </div>
+        <div class="submit-button-wrapper">
+            <button type="submit">Salvar</button>
+        </div>
+    </form>
+</div>

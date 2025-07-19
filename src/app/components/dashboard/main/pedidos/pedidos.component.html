@@ -14,26 +14,28 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>
-                    <p>#12412B</p>
-                </td>
-                <td>
-                    <p>01/07/2025</p>
-                </td>
-                <td>
-                    <p>Bruno</p>
-                </td>
-                <td>
-                    <p class="status">Pago</p>
-                </td>
-                <td>
-                    <p>R$ 455,90</p>
-                </td>
-                <td>
-                    <a [routerLink]="['/dashboard/pedidos/detalhes']" class="detalhes">Ver Detalhes</a>
-                </td>
-            </tr>
+            @for (pedido of pedidos; track $index) {
+                <tr>
+                    <td>
+                        <p>{{pedido.id}}</p>
+                    </td>
+                    <td>
+                        <p>{{ pedido.data | date:'dd/MM/yyyy' }}, {{ pedido.data | date:'HH:mm':'pt-BR'}}</p>
+                    </td>
+                    <td>
+                        <p>{{ pedido.usuario.nome }}</p>
+                    </td>
+                    <td>
+                        <p class="status">{{ pedido.status }}</p>
+                    </td>
+                    <td>
+                        <p>{{ pedido.valorTotal | currency: 'BRL' }}</p>
+                    </td>
+                    <td>
+                        <a [routerLink]="['/dashboard/pedidos/detalhes/', pedido.id]" class="detalhes">Ver Detalhes</a>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </app-main>
