@@ -21,7 +21,7 @@
       [navigation]="true" [autoplay]="{ delay: 2500, disableOnInteraction: false }">
       @for (livro of livrosFiltrados; track livro.id) {
       <swiper-slide>
-        <div class="book-card">
+        <div class="book-card" [ngClass]="{ 'sem-estoque': livro.estoque === 0 }">
           <div class="book-img">
             <img [src]="livro.imagem" alt="">
           </div>
@@ -45,3 +45,4 @@
     </swiper-container>
   </div>
 </div>
+<!-- <app-contato></app-contato> -->

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IUsuario } from '../../../../../interfaces/iusuario';
 import { UsuarioService } from '../../../../../services/usuario.service';
 import { ViaCepService } from '../../../../../services/via-cep.service';
+import { AutenticacaoService } from '../../../../../services/autenticacao.service';
 
 @Component({
   selector: 'app-minha-conta',
@@ -23,7 +24,6 @@ export class EditarContaComponent implements OnInit {
 
   constructor(
     private userService: UsuarioService,
-    private viaCepService: ViaCepService,
     private router: Router,
   ) { }
 
@@ -49,7 +49,8 @@ export class EditarContaComponent implements OnInit {
     }
     console.log(usuarioAtualizado);
     this.userService.putUsuario(usuarioAtualizado).subscribe(() => {
-      this.router.navigate(['home']);
+      this.userService.logout()
+      this.router.navigate(['home/login']);
     })
   }
 

@@ -34,11 +34,11 @@
         </label>
         <label>
             Valor
-            <input [(ngModel)]="livroForm.valor" required type="number" name="price" step="0.1" placeholder="Ex: 29,90">
+            <input [(ngModel)]="livroForm.valor" required type="number" name="price" step="0.01" placeholder="Ex: 29,90">
         </label>
         <label>
             Imagem
-            <input [(ngModel)]="livroForm.imagem" required type="text" name="image" placeholder="Ex: Imagem.png">
+            <input [(ngModel)]="livroForm.imagem" required type="text" name="image" placeholder="Link para a imagem">
         </label>
         <div class="submit-button-wrapper">
             <button type="submit">Salvar</button>

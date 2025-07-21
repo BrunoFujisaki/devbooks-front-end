@@ -17,11 +17,11 @@ export class PedidosComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.pedidoService.getAllPedidos().subscribe(pedidos => {
-      this.pedidos = pedidos;
+      this.pedidos = pedidos.sort((a, b) => new Date(b.data).getTime() - new Date(a.data).getTime());
     })
   }
 }

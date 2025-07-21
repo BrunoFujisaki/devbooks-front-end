@@ -53,10 +53,20 @@
     appearance: none;
 }
 
+.filter:focus {
+    outline: none;
+}
+
 .cards {
     display: flex;
     flex-wrap: wrap;
     gap: 1.2em;
+}
+
+.sem-estoque {
+    opacity: 0.6;
+    pointer-events: none;
+    filter: grayscale(100%);
 }
 
 .book-card {
@@ -132,7 +142,9 @@
 }
 
 .mySwiper {
-    width: 100%; /* Ou uma largura fixa maior, se necessário */
-    height: 450px; /* Exemplo: defina uma altura, pois o Swiper precisa dela */
+    width: 100%;
+    /* Ou uma largura fixa maior, se necessário */
+    height: 450px;
+    /* Exemplo: defina uma altura, pois o Swiper precisa dela */
     /* Certifique-se de que o elemento pai do .cards também permite a largura total */
 }

@@ -1,17 +1,16 @@
 import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ILivro } from '../../../../interfaces/ilivro';
 import { LivroService } from '../../../../services/livro.service';
-import { CurrencyPipe, KeyValuePipe } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { CarrinhoService } from '../../../../services/carrinho.service';
 import { UsuarioService } from '../../../../services/usuario.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { ICategoria } from '../../../../interfaces/icategoria';
-import { CategoriaService } from '../../../../services/categoria.service';
+import { AlertaService } from '../../../../services/alerta.service';
 
 @Component({
   selector: 'app-lista-livros',
-  imports: [CurrencyPipe, RouterLink, FormsModule],
+  imports: [CurrencyPipe, RouterLink, FormsModule, CommonModule],
   templateUrl: './lista-livros.component.html',
   styleUrl: './lista-livros.component.css',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -25,7 +24,9 @@ export class ListaLivrosComponent implements OnInit {
   constructor(
     private livroService: LivroService,
     private carrinhoService: CarrinhoService,
-    private usuarioService: UsuarioService
+    private alertaService: AlertaService,
+    private usuarioService: UsuarioService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -53,9 +54,16 @@ export class ListaLivrosComponent implements OnInit {
         livroId: livro.id,
         quantidade: 1
       }
-      this.carrinhoService.adicionarAoCarrinho(dados).subscribe();
+      this.carrinhoService.adicionarAoCarrinho(dados).subscribe({
+        next: () => {
+          this.alertaService.success(livro.titulo+' adicionado ao carrinho!');
+        },
+        error: (erro) => {
+          this.alertaService.error(erro.status, erro.error?.message)
+        }
+      });
     } else {
-      alert('Faça login para adicionar itens ao seu carrinho')
+      this.alertaService.error('Faça login para adicionar itens ao seu carrinho', '');
     }
   }
 }

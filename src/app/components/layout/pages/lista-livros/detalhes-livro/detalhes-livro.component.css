@@ -1,10 +1,9 @@
 .livro-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
     background-color: var(--fundo-componentes);
-    width: 800px;
+    width: 1300px;
+    margin: 5em auto;
     display: flex;
     align-items: center;
     padding: 3em;

@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { CadastroService } from '../../../../services/cadastro.service';
 import { ViaCepService } from '../../../../services/via-cep.service';
+import { AlertaService } from '../../../../services/alerta.service';
 
 @Component({
   selector: 'app-cadastro',
@@ -17,6 +18,7 @@ export class CadastroComponent {
     email: '',
     telefone: '',
     senha: '',
+    confirmarSenha: '',
     cep: '',
     rua: '',
     numero: '',
@@ -29,13 +31,23 @@ export class CadastroComponent {
   constructor(
     private cadastroService: CadastroService,
     private viaCepService: ViaCepService,
+    private alertaService: AlertaService,
     private router: Router
   ) {}
 
   cadastrar() {
-    this.cadastroService.cadastrarUsuario(this.formRegistro).subscribe(() => {
-      this.router.navigate(['home/login']);
-    }) 
+    if (this.formRegistro.senha != this.formRegistro.confirmarSenha) {
+      this.alertaService.error('Senhas não coincidem', '');
+    } else {
+      this.cadastroService.cadastrarUsuario(this.formRegistro).subscribe({
+        next: () => {
+          this.router.navigate(['home/login']);
+        },
+        error: (erro) => {
+          this.alertaService.error(erro.status, erro.error.message)
+        }
+      });
+    }
   }
 
   buscarEnderecoPorCep() {

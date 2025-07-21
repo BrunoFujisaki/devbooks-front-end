@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { PedidoService } from '../../../../services/pedido.service';
-import { IPedido } from '../../../../interfaces/ipedido';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { ViaCepService } from '../../../../services/via-cep.service';
 import { CarrinhoService } from '../../../../services/carrinho.service';
 import { ICarrinho } from '../../../../interfaces/icarrinho';
+import Swal from 'sweetalert2';
+import { AlertaService } from '../../../../services/alerta.service';
 
 @Component({
   selector: 'app-pagamento',
@@ -39,6 +40,7 @@ export class PagamentoComponent implements OnInit {
   constructor(
     private carrinhoService: CarrinhoService,
     private pedidoService: PedidoService,
+    private alertaService: AlertaService,
     private activatedRoute: ActivatedRoute,
     private viaCepService: ViaCepService,
     private router: Router
@@ -77,9 +79,14 @@ export class PagamentoComponent implements OnInit {
       localidade: this.formPagamento.cidade,
       uf: this.formPagamento.uf
     }
-    this.pedidoService.fazerPedido(endereco).subscribe(() => {
-      alert('Pedido realizado com sucesso!');
-      this.router.navigate(['/home']);
-    }) 
+    this.pedidoService.fazerPedido(endereco).subscribe({
+      next: async () => {
+        await this.alertaService.success('Pedido realizado com sucesso');
+        this.router.navigate(['/home']);
+      },
+      error: (erro) => {
+        this.alertaService.error(erro.status, erro.error?.message)
+      }
+    });
   }
 }

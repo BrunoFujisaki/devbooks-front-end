@@ -28,11 +28,11 @@
         @for (item of pedido.itens; track $index) {
         <div class="item">
             <div class="item-imagem">
-                <img [src]="`/livros/${item.livro.imagem}.png`" alt="">
+                <img [src]="item.livro.imagem" alt="">
             </div>
             <div>
                 <h3>{{item.livro.titulo}}</h3>
-                <p>{{item.quantidade}} x {{item.valor | currency: 'BRL'}} = {{item.quantidade*item.valor}}</p>
+                <p>{{item.quantidade}} x {{item.valor | currency: 'BRL'}} = {{item.quantidade*item.valor | currency: 'BRL'}}</p>
             </div>
         </div>
         }

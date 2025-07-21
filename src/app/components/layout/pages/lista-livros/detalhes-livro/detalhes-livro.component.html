@@ -5,15 +5,15 @@
     <div class="livro-info">
         <div>
             <h1>{{livro.titulo}}</h1>
-            <h2>Autor: <span>{{livro.autor}}</span></h2>
-            <h3>Categoria: <span>{{livro.categoria.nome}}</span></h3>
+            <h2><span>por {{livro.autor}}</span></h2>
+            <h3><span>{{livro.categoria.nome}}</span></h3>
         </div>
         <div>
             <p>
                 {{livro.descricao}}
             </p>
             <p class="valor">{{livro.valor | currency: 'BRL'}}</p>
-            <button class="add-to-cart-button">Adicionar ao Carrinho</button>
+            <button class="add-to-cart-button" (click)="adicionarAoCarrinho(livro)">Adicionar ao Carrinho</button>
         </div>
     </div>
 </div>
