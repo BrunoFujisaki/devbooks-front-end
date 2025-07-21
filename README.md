@@ -1,59 +1,57 @@
-# DevbooksFrontEnd
+# 📚 DevBooks - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.3.
+Bem-vindo ao repositório frontend do **DevBooks**, o e-commerce de livros! Esta aplicação web é construída com Angular e permite que os usuários naveguem por livros, adicionem itens ao carrinho, gerenciem seus pedidos e interajam com o backend do sistema.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🚀 Tecnologias Utilizadas
 
-```bash
-ng serve
-```
+* **Angular 19**: Framework para construção da interface do usuário.
+* **TypeScript**: Linguagem de programação.
+* **HTML/CSS**: Para estruturação e estilização.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## ⚙️ Configuração do Ambiente
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Pré-requisitos
 
-```bash
-ng generate component component-name
-```
+Certifique-se de ter as seguintes ferramentas instaladas:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+* **Node.js** e **npm**
+* **Angular CLI**
 
-```bash
-ng generate --help
-```
+### Configuração do Backend
 
-## Building
+Para que o frontend funcione corretamente, o backend do DevBooks precisa estar rodando. Certifique-se de que ele esteja acessível em `http://localhost:8080` (ou o endereço configurado).
 
-To build the project run:
+### Executando a Aplicação
 
-```bash
-ng build
-```
+1.  Clone este repositório:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+    ```bash
+    git clone [https://github.com/seu-usuario/devbooks-frontend.git](https://github.com/seu-usuario/devbooks-frontend.git)
+    cd devbooks-frontend
+    ```
 
-## Running unit tests
+2.  Instale as dependências:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+    ```bash
+    npm install
+    ```
 
-```bash
-ng test
-```
+3.  Inicie o servidor de desenvolvimento:
 
-## Running end-to-end tests
+    ```bash
+    ng serve
+    ```
 
-For end-to-end (e2e) testing, run:
+    A aplicação estará disponível em `http://localhost:4200`.
 
-```bash
-ng e2e
-```
+---
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## 🌐 Repositório Backend
 
-## Additional Resources
+Acesse o repositório do backend (DevBooks - Backend) construído com Spring Boot:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[DevBooks - Backend](https://github.com/BrunoFujisaki/devbooks-backend)
